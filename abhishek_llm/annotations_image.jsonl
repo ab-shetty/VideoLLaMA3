@@ -1,0 +1,41 @@
+[
+    {
+        "image": ["images/16e597e9-IMG_0021.JPG"],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "<image>\nWhere are the pineapples in the image?"
+            },
+            {
+                "from": "gpt",
+                "value": "The pineapples are down on your left."
+            }
+        ]
+    },
+    {
+        "image": ["images/84dc8779-IMG_0015.JPG"],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "<image>\nWhere are the kiwis in the image?"
+            },
+            {
+                "from": "gpt",
+                "value": "The kiwis are directly in front of you."
+            }
+        ]
+    },
+    {
+        "image": ["images/72c15c79-IMG_0076.JPG"],
+        "conversations": [
+            {
+                "from": "human",
+                "value": "<image>\nWhere are the pineapples in the image?"
+            },
+            {
+                "from": "gpt",
+                "value": "The pineapples are a few feet ahead, on the ground."
+            }
+        ]
+    }
+]
