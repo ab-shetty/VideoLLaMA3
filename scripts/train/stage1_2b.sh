@@ -40,7 +40,7 @@ torchrun --nnodes $WORLD_SIZE \
     videollama3/train.py \
     --deepspeed scripts/zero1.json \
     --model_type videollama3_qwen2 \
-    --model_path weights/videollama3_2b_local \
+    --model_path DAMO-NLP-SG/VideoLLaMA3-2B \
     --vision_encoder DAMO-NLP-SG/SigLIP-NaViT \
     --mm_projector_type mlp2x_gelu \
     --data_path ${DATA_DIR}/annotations_image.jsonl \
@@ -67,6 +67,8 @@ torchrun --nnodes $WORLD_SIZE \
     --vision_encoder_lr 1e-5 \
     --weight_decay 0. \
     --warmup_ratio 0.03 \
+    --gradient_clipping 1.0 \
+    --adam_epsilon 1e-7 \
     --lr_scheduler_type "cosine" \
     --logging_steps 1 \
     --gradient_checkpointing True \

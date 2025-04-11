@@ -70,6 +70,8 @@ torchrun --nnodes $WORLD_SIZE \
     --weight_decay 0. \
     --warmup_ratio 0.03 \
     --lr_scheduler_type "cosine" \
+    --gradient_clipping 1.0 \
+    --adam_epsilon 1e-7 \
     --logging_steps 1 \
     --gradient_checkpointing True \
     --dataloader_num_workers 16 \
