@@ -67,7 +67,7 @@ torchrun --nnodes $WORLD_SIZE \
     --vision_encoder_lr 1e-5 \
     --weight_decay 0. \
     --warmup_ratio 0.03 \
-    --gradient_clipping 1.0 \
+    --max_grad_norm=1.0 \
     --adam_epsilon 1e-7 \
     --lr_scheduler_type "cosine" \
     --logging_steps 1 \
