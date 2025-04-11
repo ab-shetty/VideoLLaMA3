@@ -1,10 +1,10 @@
 #!/bin/bash
 # Environment Variables
-ARG_WORLD_SIZE=${1:-1}
-ARG_NPROC_PER_NODE=${2:-8}
-ARG_MASTER_ADDR="127.0.0.1"
-ARG_MASTER_PORT=16667
-ARG_RANK=0
+WORLD_SIZE=1
+NPROC_PER_NODE=1  # Colab has 1 GPU
+MASTER_ADDR="127.0.0.1"
+MASTER_PORT=16667
+RANK=0
 
 # Multiple conditions
 if [ ! -n "$WORLD_SIZE" ] || [ ! -n "$NPROC_PER_NODE" ]; then
@@ -30,7 +30,7 @@ echo $GRADIENT_ACCUMULATION_STEPS
 export WANDB_PROJECT=videollama3_qwen2.5_2b
 PRECEDING_RUN_NAME=stage_1
 RUN_NAME=stage_2
-DATA_DIR=DATASETS/STAGE2
+DATA_DIR=abhishek_llm
 OUTP_DIR=work_dirs
 
 torchrun --nnodes $WORLD_SIZE \
@@ -44,7 +44,7 @@ torchrun --nnodes $WORLD_SIZE \
     --model_path ${OUTP_DIR}/${WANDB_PROJECT}/${PRECEDING_RUN_NAME} \
     --vision_encoder DAMO-NLP-SG/SigLIP-NaViT \
     --mm_projector_type mlp2x_gelu \
-    --data_path ${DATA_DIR}/annotations.jsonl \
+    --data_path ${DATA_DIR}/annotations_image.jsonl \
     --data_folder ${DATA_DIR} \
     --image_merge_size 1 \
     --video_merge_size 2 \
